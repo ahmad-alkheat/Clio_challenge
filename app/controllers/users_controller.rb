@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :only_myself, only: [:edit, :update]
+  respond_to :js
 
   def index
     @users = User.without_user(current_user)

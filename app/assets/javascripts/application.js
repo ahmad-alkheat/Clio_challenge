@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){
+	if (window.location.href == "http://localhost:3000/users"){
+		setTimeout(updateUsers, 10000);
+	}
+});
+
+function updateUsers () {
+	$.getScript("/users.js")
+	setTimeout(updateUsers, 10000);
+}
