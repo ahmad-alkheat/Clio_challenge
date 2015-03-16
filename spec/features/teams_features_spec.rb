@@ -31,7 +31,13 @@ feature 'Teams' do
     expect(page).to have_content("Team was successfully updated")
   end
 
-  
+  scenario 'join a team' do 
+    visit '/teams'
+    click_link 'join team'
+    expect(page).to have_content(" #{user.full_name}")
+  end
+
+
   def login(user)
     page.driver.post user_session_path, 'user[email]' => user.email, 'user[password]' => user.password
   end

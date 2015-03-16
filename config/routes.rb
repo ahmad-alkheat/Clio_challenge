@@ -1,6 +1,10 @@
 ClioInOutStub::Application.routes.draw do
 
-  resources :teams
+  resources :teams do 
+    member do 
+      post 'join'
+    end
+  end
 
 
   devise_for :users
@@ -12,5 +16,5 @@ ClioInOutStub::Application.routes.draw do
   end
 
   root :to => "users#index"
-
+  
 end

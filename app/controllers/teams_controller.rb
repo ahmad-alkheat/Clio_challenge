@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @team = Team.find(params[:id])
+    @users = User.where(team_id: @team.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -79,5 +80,12 @@ class TeamsController < ApplicationController
       format.html { redirect_to teams_url }
       format.json { head :no_content }
     end
+  end
+
+  def join 
+    @team = Team.find(params[:id])
+    current_user.team_id = @team.id
+    current_user.save!
+    redirect_to @team
   end
 end

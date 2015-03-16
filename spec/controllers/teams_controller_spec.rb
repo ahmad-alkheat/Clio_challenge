@@ -36,7 +36,5 @@ describe TeamsController do
       expect(response).to render_template("new")
     end
   end
-
-
 end
 
