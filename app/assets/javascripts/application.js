@@ -15,7 +15,10 @@
 //= require_tree .
 
 $(function(){
-	if (window.location.href == "http://localhost:3000/users"){
+	var pattern = new RegExp("http://localhost:3000/teams/[0-9]+")
+	if (window.location.href == "http://localhost:3000/users"
+		|| window.location.href == "http://localhost:3000/" 
+		|| window.location.href.match(pattern)){
 		setTimeout(updateUsers, 10000);
 	}
 });

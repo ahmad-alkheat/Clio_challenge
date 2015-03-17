@@ -9,5 +9,13 @@
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %> <br/>
 
+
+<% if current_user.team_id == @team.id %>
+  <span class="name"> My status </span>
+    <span class="status status-<%=current_user.status%>"> <%= current_user.status %> </span>
+    <%= link_to("Edit", edit_user_path(current_user), :class => "update-link") %>
+  </p>
+<%end%>
+
 <%= render @users %>
 

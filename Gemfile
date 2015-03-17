@@ -32,6 +32,7 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'brakeman', :require => false
   gem 'faker'
   gem 'rspec-rails'
   gem 'factory_girl'
