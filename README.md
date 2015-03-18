@@ -15,7 +15,7 @@ I got 89.1 coverage. I mainly depended on functional and integration tests with 
 
 ### Migration for IP addresses
 
-For this I wrote a sql query that will work on postgres or mysql but not sqlite because sqlite does not support 'alter' command. So my answer for this questions is commented for you to look at it but the migration won't take effect, however the solution definitely works on a production environment when we are using mysql or postgres.
+I faced a bug here that I couldn't solve so far, so this question is unfinished yet. I added some code to the migration that will convert the ips to integers first, but it conflicts with the code in the model. 
 
 ## Additional Questions to Answer
 
@@ -24,6 +24,13 @@ Please include your answers in a text file with the project.
 1. Notice that, in the finished project, the IP addresses are stored as
 integers in the DB. What are the pros and cons of this approach, compared
 to storing the IP addresses as strings?
+
+pros : 
+1- saving disk space
+2- faster to store integers into db than strings
+
+con : 
+Conversion to integer takes extra time. 
 
 2. Are there any security issues present in the app itself? (No need to
 mention security vulnerabilities within external gems.) List any security
