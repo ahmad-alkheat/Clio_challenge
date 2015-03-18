@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :team
+
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -48,6 +50,16 @@ class User < ActiveRecord::Base
     end
 
   end
+=begin
+  def convert_ips
+    if self.last_sign_in_ip and !self.last_sign_in_ip.blank?
+      self.last_sign_in_ip = last_sign_in_ip.split('.').collect(&:to_i).pack('C*').unpack('N').first
+    end
 
+    if self.current_sign_in_ip and !self.current_sign_in_ip.blank?
+      self.current_sign_in_ip = current_sign_in_ip.split('.').collect(&:to_i).pack('C*').unpack('N').first
+    end
+  end
+=end
 
 end
