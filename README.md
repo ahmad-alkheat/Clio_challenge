@@ -44,6 +44,6 @@ I have found two main security issues :
 
 3- I investigated SQL injection but the app is from free from that because all data from user input is interpolated. 
 
-4- I investigated wether I can edit someone else's status by visiting the edit url, but that wont work because you are using a filter. 
+4- I investigated whether I can edit someone else's status by visiting the edit url, but that wont work because you are using a filter. 
 
 Thanks
